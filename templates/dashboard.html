@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Incident Dashboard{% endblock %}
+
+{% block content %}
+    <h2>Incident Dashboard</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Resolution Notes</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for incident in incidents %}
+                <tr>
+                    <td>{{ incident.id }}</td>
+                    <td>{{ incident.title }}</td>
+                    <td>{{ incident.description }}</td>
+                    <td>{{ incident.status }}</td>
+                    <td>{{ incident.resolution_notes }}</td>
+                    <td>{{ incident.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>  <!-- Format the timestamp -->
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">No incidents reported yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

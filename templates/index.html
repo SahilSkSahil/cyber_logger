@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Cybersecurity Incident Logger</h1>
+    <p>This application allows you to report and track cybersecurity incidents.</p>
+    <p>If you're a new user, please <a href="{{ url_for('register') }}">register</a> first.</p>
+    <p>Already a user? Please <a href="{{ url_for('login') }}">log in</a> to access the dashboard.</p>
+{% endblock %}
